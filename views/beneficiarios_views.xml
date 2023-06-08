@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_beneficiario_form" model="ir.ui.view">
+        <field name="name">beneficiario.form</field>
+        <field name="model">beneficiarios.beneficiario</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Información del Beneficiario">
+                    <group>
+                        <field name="primer_apellido"/>
+                        <field name="segundo_apellido"/>
+                        <field name="fecha_nacimiento"/>
+                        <field name="rfc"/>
+                        <field name="estado_civil"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <!-- Definir una acción de ventana -->
+    <record id="action_beneficiario" model="ir.actions.act_window">
+        <field name="name">Beneficiarios</field>
+        <field name="res_model">beneficiarios.beneficiario</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Haz click para crear un nuevo Beneficiario.
+            </p>
+        </field>
+    </record>
+
+    <!-- Añadir un elemento de menú principal -->
+    <menuitem id="menu_beneficiario" name="Beneficiarios" action="action_beneficiario" sequence="10"/>
+</odoo>
