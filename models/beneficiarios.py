@@ -5,3 +5,5 @@ class Beneficiario(models.Model):
     _inherit = 'res.partner'
 
     is_beneficiary = fields.Boolean(string='Is Beneficiary', default=False)
+    beneficiary_ids = fields.Many2many('res.partner', string='Beneficiaries')
+

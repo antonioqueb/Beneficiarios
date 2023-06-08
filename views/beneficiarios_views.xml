@@ -18,6 +18,7 @@
                                 <field name="phone"/>
                                 <field name="email"/>
                                 <!-- Agrega aquí los campos adicionales específicos del modelo Beneficiario -->
+                                <field name="beneficiary_ids"/>
                             </group>
                         </page>
                         <!-- Puedes agregar más páginas si es necesario -->
