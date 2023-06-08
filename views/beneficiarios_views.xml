@@ -34,6 +34,6 @@
             <!-- Asegúrate de tener un campo is_beneficiary en tu modelo que identifica a un socio como beneficiario -->
         </record>
 
-        <menuitem id="menu_beneficiarios" name="Beneficiarios" parent="base.menu_partner" action="action_beneficiarios"/>
+        <menuitem id="menu_beneficiarios" name="Beneficiarios" action="action_beneficiarios"/>
     </data>
 </odoo>
