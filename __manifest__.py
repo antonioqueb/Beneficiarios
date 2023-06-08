@@ -1,5 +1,5 @@
 {
-    'name': 'Todo App',
+    'name': 'Beneficiarios',
     'version': '1.0',
     'summary': 'Manage your personal tasks',
     'description': 'This module helps you to manage your personal tasks.',
