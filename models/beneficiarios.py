@@ -4,7 +4,7 @@ class Beneficiario(models.Model):
     _description = 'Beneficiario'
     _inherit = 'res.partner'
 
-    is_beneficiary = fields.Boolean(string='Is Beneficiary', default=False)
+    is_beneficiary = fields.Boolean(string='Is Beneficiary', default=True)
     beneficiary_ids = fields.Many2many(
         'res.partner', 
         relation='partner_beneficiary_rel',  # nombre de la tabla de relación
