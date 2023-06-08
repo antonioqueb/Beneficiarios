@@ -43,6 +43,7 @@
             <field name="res_model">res.partner</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">[('is_beneficiary','=',True)]</field>
+            <field name="context">{'from_beneficiary': True}</field>
             <field name="view_id" ref="view_beneficiario_tree"/>
         </record>
 
