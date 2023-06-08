@@ -17,13 +17,24 @@
                                 <field name="vat"/>
                                 <field name="phone"/>
                                 <field name="email"/>
-                                <!-- Agrega aquí los campos adicionales específicos del modelo Beneficiario -->
+                                <field name="is_beneficiary"/>
                                 <field name="beneficiary_ids"/>
                             </group>
                         </page>
-                        <!-- Puedes agregar más páginas si es necesario -->
                     </notebook>
                 </form>
+            </field>
+        </record>
+        
+        <record id="view_beneficiario_tree" model="ir.ui.view">
+            <field name="name">beneficiario.tree</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <tree string="Beneficiarios">
+                    <field name="name"/>
+                    <field name="email"/>
+                    <!-- Incluye los campos que quieras mostrar en la vista de lista -->
+                </tree>
             </field>
         </record>
 
@@ -31,8 +42,8 @@
             <field name="name">Beneficiarios</field>
             <field name="res_model">res.partner</field>
             <field name="view_mode">tree,form</field>
-            <field name="domain">[('is_beneficiary','=',True)]</field> 
-            <!-- Asegúrate de tener un campo is_beneficiary en tu modelo que identifica a un socio como beneficiario -->
+            <field name="domain">[('is_beneficiary','=',True)]</field>
+            <field name="view_id" ref="view_beneficiario_tree"/>
         </record>
 
         <menuitem id="menu_beneficiarios" name="Beneficiarios" action="action_beneficiarios"/>
