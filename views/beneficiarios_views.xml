@@ -1,36 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_beneficiario_form" model="ir.ui.view">
-        <field name="name">beneficiario.form</field>
-        <field name="model">beneficiarios.beneficiario</field>
-        <field name="inherit_id" ref="base.view_partner_form"/>
-        <field name="arch" type="xml">
-            <notebook position="inside">
-                <page string="Información del Beneficiario">
-                    <group>
-                        <field name="primer_apellido"/>
-                        <field name="segundo_apellido"/>
-                        <field name="fecha_nacimiento"/>
-                        <field name="rfc"/>
-                        <field name="estado_civil"/>
-                    </group>
-                </page>
-            </notebook>
-        </field>
-    </record>
+    <data>
+        <record id="view_beneficiario_form" model="ir.ui.view">
+            <field name="name">beneficiario.form.view</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <form string="Beneficiario">
+                    <notebook>
+                        <page string="Beneficiario">
+                            <group>
+                                <field name="name"/>
+                                <field name="street"/>
+                                <field name="city"/>
+                                <field name="state_id"/>
+                                <field name="country_id"/>
+                                <field name="vat"/>
+                                <field name="phone"/>
+                                <field name="email"/>
+                                <!-- Agrega aquí los campos adicionales específicos del modelo Beneficiario -->
+                            </group>
+                        </page>
+                        <!-- Puedes agregar más páginas si es necesario -->
+                    </notebook>
+                </form>
+            </field>
+        </record>
 
-    <!-- Definir una acción de ventana -->
-    <record id="action_beneficiario" model="ir.actions.act_window">
-        <field name="name">Beneficiarios</field>
-        <field name="res_model">beneficiarios.beneficiario</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Haz click para crear un nuevo Beneficiario.
-            </p>
-        </field>
-    </record>
+        <record id="action_beneficiarios" model="ir.actions.act_window">
+            <field name="name">Beneficiarios</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_beneficiary','=',True)]</field> 
+            <!-- Asegúrate de tener un campo is_beneficiary en tu modelo que identifica a un socio como beneficiario -->
+        </record>
 
-    <!-- Añadir un elemento de menú principal -->
-    <menuitem id="menu_beneficiario" name="Beneficiarios" action="action_beneficiario" sequence="10"/>
+        <menuitem id="menu_beneficiarios" name="Beneficiarios" parent="base.menu_partner" action="action_beneficiarios"/>
+    </data>
 </odoo>
