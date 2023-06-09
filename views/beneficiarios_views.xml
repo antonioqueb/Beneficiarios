@@ -4,25 +4,26 @@
         <record id="view_beneficiario_form" model="ir.ui.view">
             <field name="name">beneficiario.form.view</field>
             <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/> <!-- Hacer referencia al ID externo de la vista original -->
             <field name="arch" type="xml">
-                <form string="Beneficiario">
-                    <notebook>
-                        <page string="Beneficiario">
-                            <group>
-                                <field name="name"/>
-                                <field name="street"/>
-                                <field name="city"/>
-                                <field name="state_id"/>
-                                <field name="country_id"/>
-                                <field name="vat"/>
-                                <field name="phone"/>
-                                <field name="email"/>
-                                <field name="is_beneficiary"/>
-                                <field name="beneficiary_ids"/>
-                            </group>
-                        </page>
-                    </notebook>
-                </form>
+                <xpath expr="//field[@name='is_company']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='company_name']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='state_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='function']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='website']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='title']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
             </field>
         </record>
         

@@ -17,4 +17,6 @@ class Beneficiario(models.Model):
     def create(self, vals):
         if 'is_beneficiary' not in vals and self.env.context.get('from_beneficiary'):
             vals['is_beneficiary'] = True
+        vals['is_company'] = False  # forzar a que siempre sea una persona
+    
         return super(Beneficiario, self).create(vals)
