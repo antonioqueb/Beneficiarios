@@ -4,10 +4,10 @@
         <record id="view_beneficiario_form" model="ir.ui.view">
             <field name="name">beneficiario.form.view</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="inherit_id" ref="base.view_partner_form"/> <!-- Hacer referencia al ID externo de la vista original -->
             <field name="arch" type="xml">
-                <xpath expr="//div[@name='div_is_company']" position="replace">
-                    <field name="is_company" invisible="1"/>
+                <xpath expr="//field[@name='is_company']" position="attributes">
+                    <attribute name="invisible">1</attribute>
                 </xpath>
                 <xpath expr="//field[@name='company_name']" position="attributes">
                     <attribute name="invisible">1</attribute>
@@ -34,6 +34,7 @@
                 <tree string="Beneficiarios">
                     <field name="name"/>
                     <field name="email"/>
+                    <!-- Incluye los campos que quieras mostrar en la vista de lista -->
                 </tree>
             </field>
         </record>
